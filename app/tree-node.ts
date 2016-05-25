@@ -1,6 +1,6 @@
 export class TreeNode{
-  showIcon = false;
-  expanded = false;
+  showIcon: boolean = false;
+  expanded: boolean = false;
   icon: string = null;
 
   constructor(public key: string, public url: string, public name: string){
@@ -21,7 +21,6 @@ export class TreeNode{
         return '- ';
       }
       return '+ ';
-
     }
     return null;
   }

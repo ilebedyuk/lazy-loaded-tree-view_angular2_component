@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
-import {Observable} from 'rxjs/Observable';
-import {Http,Response} from '@angular/http';
-import {TreeNode} from '../tree-node';
-import {treeNodeReducer} from './tree-node-reducer';
+import {Injectable} from "@angular/core";
+import {Subject} from "rxjs/Subject";
+import {Observable} from "rxjs/Observable";
+import {Http, Response} from "@angular/http";
+import {TreeNode} from "../tree-node";
+import {treeNodeReducer} from "./tree-node-reducer";
 
 @Injectable()
 export class Store{
@@ -35,7 +35,7 @@ export class Store{
     }
   }
 
-  getTreeNodes(key: any): Observable<any> {
+  getTreeNodes(key: string): Observable<any> {
     if(!this.treeNodes.hasOwnProperty(key)){
       this.treeNodes[key] = new Subject<Array<TreeNode>>();
     }

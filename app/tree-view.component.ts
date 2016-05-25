@@ -1,23 +1,22 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {TreeNode} from './tree-node';
-import {Store} from './redux/store';
-import {TreeNodeService} from './tree-node-service';
+import {TreeNode} from "./tree-node";
+import {Store} from "./redux/store";
+import {TreeNodeService} from "./tree-node.service";
+import {Component, OnInit, Input} from "@angular/core";
 
 @Component({
-  templateUrl:'app/tree-view.html',
   selector:'tree-view',
+  templateUrl:'app/tree-view.component.html',
+  styleUrls: ['app/tree-view.component.css'],
   directives:[TreeView]
 })
 
 export class TreeView implements OnInit{
 
   @Input() root:TreeNode;
-  children:any;
   items: any = [];
-  subscription: any = {};
+  subscription:any = {};
 
-  constructor(private _store:Store, private _treeNodeService:TreeNodeService){
-  }
+  constructor(private _store:Store, private _treeNodeService:TreeNodeService){}
 
   ngOnInit(){
     this.subscription = this._store.getTreeNodes(this.root.key).subscribe(res => {
